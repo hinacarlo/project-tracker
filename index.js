@@ -1,1 +1,3 @@
-import Kanban from "./kanban";
+import Kanban from "./kanban.js";
+
+console.log(Kanban.getAllTasks());

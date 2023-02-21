@@ -7,9 +7,33 @@ export default class Kanban {
 
   static deleteTask(taskId) {}
 
-  static getAllTasks() {}
+  static getAllTasks() {
+    const data = read();
+    return [data[0].tasks, data[1].tasks, data[2].tasks];
+  }
 }
 
-function read() {}
+function read() {
+  const data = localStorage.getItem("data");
+
+  if (!data) {
+    return [
+      {
+        columnId: 0,
+        tasks: [],
+      },
+
+      {
+        columnId: 1,
+        tasks: [],
+      },
+      {
+        columnId: 2,
+        tasks: [],
+      },
+    ];
+  }
+  return JSON.parse(data);
+}
 
 function save() {}
