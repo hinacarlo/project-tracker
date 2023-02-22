@@ -48,7 +48,7 @@ export default class Kanban {
     const [task, column] = findColumnTask();
 
     const targetColumn = data.find((column) => {
-      return column.columnId === updatedContent.columnId;
+      return column.columnId === +updatedContent.columnId;
     });
 
     task.content = updatedContent.content;
