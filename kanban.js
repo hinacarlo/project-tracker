@@ -1,5 +1,15 @@
 export default class Kanban {
-  static getTasks(columnId) {}
+  static getTasks(columnId) {
+    const data = read().find((column) => {
+      return column.columnId === columnId;
+    });
+
+    if (!data) {
+      return [];
+    }
+
+    return data.tasks;
+  }
 
   static createTask(columnId, content) {}
 
