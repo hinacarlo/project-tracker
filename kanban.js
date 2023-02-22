@@ -19,14 +19,26 @@ export default class Kanban {
 
     column.tasks.push(task);
     console.log(data);
-    localStorage.setItem("data", JSON.stringify(data));
+    save(data);
 
     return task;
   }
 
   static updateTask(taskId, updatedContent) {}
 
-  static deleteTask(taskId) {}
+  static deleteTask(taskId) {
+    const data = read();
+
+    for (const column of data) {
+      const task = column.tasks.find((item) => {
+        return item.taskId === taskId;
+      });
+
+      column.tasks.splice(column.tasks.indexOf(task), 1);
+    }
+
+    save(data);
+  }
 
   static getAllTasks() {
     const data = read();
@@ -57,4 +69,6 @@ function read() {
   return JSON.parse(data);
 }
 
-function save() {}
+function save(data) {
+  localStorage.setItem("data", JSON.stringify(data));
+}
