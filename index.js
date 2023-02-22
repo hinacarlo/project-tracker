@@ -74,5 +74,10 @@ taskbox.forEach((column) => {
         content,
       });
     }
+
+    if (event.target.classList.contains("delete")) {
+      formInput.parentElement.remove();
+      Kanban.deleteTask(event.target.dataset.id);
+    }
   });
 });
