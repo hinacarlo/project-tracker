@@ -1,4 +1,9 @@
 export default class Kanban {
+  static getAllTasks() {
+    const data = read();
+    return [data[0].tasks, data[1].tasks, data[2].tasks];
+  }
+
   static getTasks(columnId) {
     const data = read().find((column) => {
       return column.columnId === columnId;
@@ -64,11 +69,6 @@ export default class Kanban {
     }
 
     save(data);
-  }
-
-  static getAllTasks() {
-    const data = read();
-    return [data[0].tasks, data[1].tasks, data[2].tasks];
   }
 }
 
