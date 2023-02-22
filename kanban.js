@@ -4,14 +4,25 @@ export default class Kanban {
       return column.columnId === columnId;
     });
 
-    if (!data) {
-      return [];
-    }
-
     return data.tasks;
   }
 
-  static createTask(columnId, content) {}
+  static createTask(columnId, content) {
+    const data = read();
+    const column = data.find((column) => {
+      return column.columnId === columnId;
+    });
+    const task = {
+      taskId: Math.floor(Math.random() * 100000),
+      content,
+    };
+
+    column.tasks.push(task);
+    console.log(data);
+    localStorage.setItem("data", JSON.stringify(data));
+
+    return task;
+  }
 
   static updateTask(taskId, updatedContent) {}
 

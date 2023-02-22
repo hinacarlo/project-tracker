@@ -1,3 +1,3 @@
 import Kanban from "./kanban.js";
 
-console.log(Kanban.getTasks(1));
+// console.log(Kanban.createTask(0, "Study MongoDB"));
