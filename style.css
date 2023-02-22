@@ -84,7 +84,7 @@
 }
 
 .cards {
- padding: 10px 5px; 
+  padding: 10px 5px;
 }
 
 .card {
@@ -145,6 +145,10 @@
 
 .card .delete {
   background-color: #e20000;
+}
+
+.dragging {
+  opacity: 0.4;
 }
 
 .add {
