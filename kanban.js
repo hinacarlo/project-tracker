@@ -1,6 +1,7 @@
 export default class Kanban {
   static getAllTasks() {
     const data = read();
+    columnCount();
     return [data[0].tasks, data[1].tasks, data[2].tasks];
   }
 
@@ -97,4 +98,16 @@ function read() {
 
 function save(data) {
   localStorage.setItem("data", JSON.stringify(data));
+  columnCount();
+}
+
+function columnCount() {
+  const data = read();
+
+  const todo = document.querySelector("span.todo");
+  todo.textContent = data[0].tasks.length;
+  const pending = document.querySelector("span.pending");
+  pending.textContent = data[1].tasks.length;
+  const completed = document.querySelector("span.completed");
+  completed.textContent = data[2].tasks.length;
 }
