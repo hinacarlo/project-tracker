@@ -31,3 +31,18 @@ Kanban.getAllTasks().forEach((tasks, indx) => {
     addTaskCard(task, indx);
   });
 });
+
+const addForm = document.querySelectorAll(".add");
+addForm.forEach((form) => {
+  form.addEventListener("submit", (event) => {
+    event.preventDefault();
+    if (form.task.value) {
+      const task = Kanban.createTask(
+        form.submit.dataset.id,
+        form.task.value.trim()
+      );
+      addTaskCard(task, form.submit.dataset.id);
+      form.reset();
+    }
+  });
+});

@@ -7,7 +7,7 @@ export default class Kanban {
 
   static getTasks(columnId) {
     const data = read().find((column) => {
-      return column.columnId === columnId;
+      return column.columnId === +columnId;
     });
 
     return data.tasks;
@@ -16,7 +16,7 @@ export default class Kanban {
   static createTask(columnId, content) {
     const data = read();
     const column = data.find((column) => {
-      return column.columnId === columnId;
+      return column.columnId === +columnId;
     });
     const task = {
       taskId: Math.floor(Math.random() * 100000),
@@ -36,7 +36,7 @@ export default class Kanban {
     const findColumnTask = () => {
       for (const column of data) {
         const task = column.tasks.find((item) => {
-          return item.taskId === taskId;
+          return item.taskId === +taskId;
         });
 
         if (task) {
@@ -63,10 +63,12 @@ export default class Kanban {
 
     for (const column of data) {
       const task = column.tasks.find((item) => {
-        return item.taskId === taskId;
+        return item.taskId === +taskId;
       });
 
-      column.tasks.splice(column.tasks.indexOf(task), 1);
+      if (task) {
+        column.tasks.splice(column.tasks.indexOf(task), 1);
+      }
     }
 
     save(data);
