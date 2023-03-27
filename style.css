@@ -18,7 +18,8 @@
 .outer-wrap {
   width: 100%;
   min-height: 100vh;
-  background-color: #0d479a;
+  /* background-color: #0d479a; */
+  background-color: #ffe9d2;
   padding: 30px;
 }
 
@@ -33,14 +34,14 @@
 
 .heading .title {
   font-size: 30px;
-  color: #fff;
+  color: #0d479a;
   font-weight: 500;
   text-align: center;
 }
 
 .heading .subtitle {
   font-size: 20px;
-  color: #fff;
+  color: #0d479a;
   font-weight: 300;
   text-align: center;
 }
@@ -53,7 +54,7 @@
 }
 
 .taskbox {
-  background-color: #d9dfe9;
+  background-color: #d3e4ff;
   padding: 15px;
   border-radius: 5px;
   min-width: 325px;
